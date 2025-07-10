@@ -66,14 +66,14 @@
          <item>
           <widget class="QLabel" name="label_30">
            <property name="text">
-            <string>服务ID:</string>
+            <string>设备ID:</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QLineEdit" name="local_device_id">
            <property name="text">
-            <string>AA00</string>
+            <string>00aa</string>
            </property>
           </widget>
          </item>
@@ -773,7 +773,7 @@
            </rect>
           </property>
           <property name="text">
-           <string>AA00</string>
+           <string/>
           </property>
          </widget>
         </widget>

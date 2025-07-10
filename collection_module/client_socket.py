@@ -26,7 +26,7 @@ class MKClientSocketThread(QThread):
     signal = pyqtSignal(object)
     HEADER = "E3E4"
 
-    def __init__(self, device_id="aa00"):
+    def __init__(self, device_id="00aa"):
         QThread.__init__(self)
         self.socket = None
         self.server_port = None
@@ -35,7 +35,7 @@ class MKClientSocketThread(QThread):
         self.recv_queue = Queue()
         self.__inner_event = Event()
         # self.header = "e3e4"
-        self.device_id = device_id
+        self.device_id = BasicFormat.convert(device_id)
         self.flag = True
         self.heartbeat_flag = True
         self.send_flag = True
@@ -127,6 +127,7 @@ class MKClientSocketThread(QThread):
         fix_ntp_port = BasicFormat.convert(f"{int(fix_ntp_port):04x}")
         dynamic_ntp_server = binascii.hexlify(dynamic_ntp_server.encode()).decode('utf-8').ljust(60, '0')
         dynamic_ntp_port = BasicFormat.convert(f"{int(dynamic_ntp_port):04x}")
+        device_id = BasicFormat.convert(device_id)
         dns_server = BasicFormat.convert_addr_to_hex(dns_server)
         data = f"{self.__get_header()}{FunctionCode.SET_DEVICE_PARAM.value}{length}" \
                f"{device_id}{hum_enable}{hum_id}{fan_open_temp}{fan_close_temp}{timing_type}{time_interval}{fixed_ntp_server}" \

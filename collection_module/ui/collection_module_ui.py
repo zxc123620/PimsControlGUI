@@ -11,9 +11,9 @@ from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QIntValidator
 from PyQt5.QtWidgets import QMainWindow, QMessageBox
 
-from pims.collection_module.client_socket import MKClientSocketThread
-from pims.collection_module.function_code import FunctionCode, FanControl, Enable, TimingType, ConnectStatusCode
-from pims.collection_module.ui.untitled import Ui_MainWindow
+from collection_module.client_socket import MKClientSocketThread
+from collection_module.function_code import FunctionCode, FanControl, Enable, TimingType, ConnectStatusCode
+from collection_module.ui.untitled import Ui_MainWindow
 
 
 class CollectionModuleUi(QMainWindow, Ui_MainWindow):
@@ -96,6 +96,7 @@ class CollectionModuleUi(QMainWindow, Ui_MainWindow):
             self.dynamic_ntp_port.setText(str(obj.dynamic_ntp_port))
             self.ntp_interval.setText(str(obj.time_interval))
             self.dns_analysis.setText(obj.dns_server)
+            self.device_id_set.setText(obj.device_id_2)
 
         elif obj.function_code == FunctionCode.DOOR_STATE:
             # 开关门
