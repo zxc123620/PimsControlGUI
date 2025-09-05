@@ -1,0 +1,1783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1121</width>
+    <height>910</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,8">
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string>连接</string>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>服务IP:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="server_ip">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>192.168.3.10</string>
+           </property>
+           <property name="placeholderText">
+            <string>服务IP地址</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_29">
+           <property name="text">
+            <string>服务端口:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="server_port">
+           <property name="text">
+            <string>5001</string>
+           </property>
+           <property name="placeholderText">
+            <string>服务端口号</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_30">
+           <property name="text">
+            <string>设备ID:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="local_device_id">
+           <property name="text">
+            <string>00aa</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="connect_server">
+           <property name="text">
+            <string>连接</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="close_server">
+           <property name="enabled">
+            <bool>false</bool>
+           </property>
+           <property name="text">
+            <string>断开</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="status_label_1">
+           <property name="text">
+            <string>状态:</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="status_label">
+           <property name="text">
+            <string>无</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <spacer name="horizontalSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="control_tab">
+       <attribute name="title">
+        <string>控制</string>
+       </attribute>
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>10</y>
+          <width>401</width>
+          <height>231</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>网络设置</string>
+        </property>
+        <widget class="QLabel" name="label_10">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>82</y>
+           <width>24</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>端口</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="net_heatbeat_interval">
+         <property name="geometry">
+          <rect>
+           <x>249</x>
+           <y>82</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="net_mask">
+         <property name="geometry">
+          <rect>
+           <x>249</x>
+           <y>30</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_14">
+         <property name="geometry">
+          <rect>
+           <x>195</x>
+           <y>108</y>
+           <width>42</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>备用DNS</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_9">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>56</y>
+           <width>24</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>网关</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_11">
+         <property name="geometry">
+          <rect>
+           <x>195</x>
+           <y>30</y>
+           <width>24</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>掩码</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="net_dns_2">
+         <property name="geometry">
+          <rect>
+           <x>249</x>
+           <y>108</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="set_net_btn">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>170</x>
+           <y>150</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>设置</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_15">
+         <property name="geometry">
+          <rect>
+           <x>195</x>
+           <y>82</y>
+           <width>48</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>心跳间隔</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_12">
+         <property name="geometry">
+          <rect>
+           <x>195</x>
+           <y>56</y>
+           <width>42</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>mac地址</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="net_dns_1">
+         <property name="geometry">
+          <rect>
+           <x>56</x>
+           <y>108</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_13">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>108</y>
+           <width>30</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>主DNS</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="net_port">
+         <property name="geometry">
+          <rect>
+           <x>56</x>
+           <y>82</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="net_addr">
+         <property name="geometry">
+          <rect>
+           <x>56</x>
+           <y>30</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="net_mac">
+         <property name="geometry">
+          <rect>
+           <x>249</x>
+           <y>56</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="net_gateway">
+         <property name="geometry">
+          <rect>
+           <x>56</x>
+           <y>56</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="get_net_btn">
+         <property name="geometry">
+          <rect>
+           <x>80</x>
+           <y>150</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>读取</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_8">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>30</y>
+           <width>16</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>IP</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_5">
+        <property name="geometry">
+         <rect>
+          <x>6</x>
+          <y>250</y>
+          <width>1081</width>
+          <height>221</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>设备参数设置</string>
+        </property>
+        <widget class="QPushButton" name="set_param_btn">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="geometry">
+          <rect>
+           <x>920</x>
+           <y>190</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>设置</string>
+         </property>
+         <property name="checkable">
+          <bool>false</bool>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="get_device_param_btn">
+         <property name="geometry">
+          <rect>
+           <x>820</x>
+           <y>190</y>
+           <width>70</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>读取</string>
+         </property>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>21</x>
+           <y>30</y>
+           <width>213</width>
+           <height>178</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout">
+          <item row="1" column="0">
+           <widget class="QLabel" name="label_16">
+            <property name="text">
+             <string>固定ntp服务</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" colspan="2">
+           <widget class="QLineEdit" name="fixed_ntp_server">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0">
+           <widget class="QLabel" name="label_17">
+            <property name="text">
+             <string>固定ntp端口</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" colspan="2">
+           <widget class="QLineEdit" name="fixed_ntp_port">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0">
+           <widget class="QLabel" name="label_24">
+            <property name="text">
+             <string>动态ntp服务</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1" colspan="2">
+           <widget class="QLineEdit" name="dynamic_ntp_server">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0">
+           <widget class="QLabel" name="label_25">
+            <property name="text">
+             <string>动态ntp端口</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1" colspan="2">
+           <widget class="QLineEdit" name="dynamic_ntp_port">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0">
+           <widget class="QLabel" name="label_26">
+            <property name="text">
+             <string>域名服务器</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1" colspan="2">
+           <widget class="QLineEdit" name="dns_analysis">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0">
+           <widget class="QLabel" name="label_27">
+            <property name="text">
+             <string>校时间隔</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1" colspan="2">
+           <widget class="QLineEdit" name="ntp_interval">
+            <property name="text">
+             <string/>
+            </property>
+            <property name="readOnly">
+             <bool>false</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="label_28">
+            <property name="text">
+             <string>设备ID:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" colspan="2">
+           <widget class="QLineEdit" name="device_id_set">
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_9">
+         <property name="geometry">
+          <rect>
+           <x>250</x>
+           <y>20</y>
+           <width>521</width>
+           <height>191</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>喇叭信息</string>
+         </property>
+         <widget class="QWidget" name="layoutWidget_4">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>50</y>
+            <width>506</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_13">
+           <item>
+            <widget class="QLabel" name="label_32">
+             <property name="text">
+              <string>4号喇叭ID</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="speaker_4_id"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="speaker_4_enable">
+             <property name="text">
+              <string>使能</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_33">
+             <property name="text">
+              <string>5号喇叭ID</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="speaker_5_id"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="speaker_5_enable">
+             <property name="text">
+              <string>使能</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_34">
+             <property name="text">
+              <string>6号喇叭ID</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="speaker_6_id"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="speaker_6_enable">
+             <property name="text">
+              <string>使能</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>506</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_12">
+           <item>
+            <widget class="QLabel" name="label_18">
+             <property name="text">
+              <string>1号喇叭ID</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="speaker_1_id"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="speaker_1_enable">
+             <property name="text">
+              <string>使能</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_20">
+             <property name="text">
+              <string>2号喇叭ID</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="speaker_2_id"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="speaker_2_enable">
+             <property name="text">
+              <string>使能</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_31">
+             <property name="text">
+              <string>3号喇叭ID</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="speaker_3_id"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="speaker_3_enable">
+             <property name="text">
+              <string>使能</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>160</y>
+            <width>219</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_14">
+           <item>
+            <widget class="QLabel" name="label_35">
+             <property name="text">
+              <string>喇叭语音数量:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="speaker_colunm_num"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget_6">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>80</y>
+            <width>506</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_24">
+           <item>
+            <widget class="QLabel" name="label_43">
+             <property name="text">
+              <string>7号喇叭ID</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="speaker_7_id"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="speaker_7_enable">
+             <property name="text">
+              <string>使能</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_44">
+             <property name="text">
+              <string>8号喇叭ID</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="speaker_8_id"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="speaker_8_enable">
+             <property name="text">
+              <string>使能</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_45">
+             <property name="text">
+              <string>9号喇叭ID</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="speaker_9_id"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="speaker_9_enable">
+             <property name="text">
+              <string>使能</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget_7">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>110</y>
+            <width>506</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_25">
+           <item>
+            <widget class="QLabel" name="label_46">
+             <property name="text">
+              <string>10号喇叭ID</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="speaker_10_id"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="speaker_10_enable">
+             <property name="text">
+              <string>使能</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_47">
+             <property name="text">
+              <string>11号喇叭ID</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="speaker_11_id"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="speaker_11_enable">
+             <property name="text">
+              <string>使能</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_48">
+             <property name="text">
+              <string>12号喇叭ID</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLineEdit" name="speaker_12_id"/>
+           </item>
+           <item>
+            <widget class="QCheckBox" name="speaker_12_enable">
+             <property name="text">
+              <string>使能</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>790</x>
+           <y>30</y>
+           <width>261</width>
+           <height>68</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_7">
+            <item>
+             <widget class="QLabel" name="label_21">
+              <property name="text">
+               <string>校时方式</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="ntp_man">
+              <property name="text">
+               <string>手动</string>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">buttonGroup</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="ntp_ntp">
+              <property name="text">
+               <string>NTP</string>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">buttonGroup</string>
+              </attribute>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="ntp_dn">
+              <property name="text">
+               <string>域名</string>
+              </property>
+              <attribute name="buttonGroup">
+               <string notr="true">buttonGroup</string>
+              </attribute>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <item>
+             <widget class="QLabel" name="label_22">
+              <property name="text">
+               <string>信号灯使能</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="light_1_enable">
+              <property name="text">
+               <string>灯1</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="light_2_enable">
+              <property name="text">
+               <string>灯2</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="light_3_enable">
+              <property name="text">
+               <string>灯3</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="light_4_enable">
+              <property name="text">
+               <string>灯4</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <item>
+             <widget class="QLabel" name="label_23">
+              <property name="text">
+               <string>列调使能</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="g_net_checkbox">
+              <property name="text">
+               <string>G网</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QCheckBox" name="intercom_checkbox">
+              <property name="text">
+               <string>450</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>480</y>
+          <width>1091</width>
+          <height>271</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>设备控制</string>
+        </property>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>20</y>
+           <width>281</width>
+           <height>91</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>信号灯控制</string>
+         </property>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>20</y>
+            <width>252</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QRadioButton" name="ligh_1_radio">
+             <property name="text">
+              <string>灯1</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroup_3</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="light_2_radio">
+             <property name="text">
+              <string>灯2</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroup_3</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="open_light">
+             <property name="text">
+              <string>开启</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="close_light">
+             <property name="text">
+              <string>关闭</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>60</y>
+            <width>181</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>灯1状态:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>无</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_6">
+             <property name="text">
+              <string>灯2状态:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_5">
+             <property name="text">
+              <string>无</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="geometry">
+          <rect>
+           <x>300</x>
+           <y>20</y>
+           <width>251</width>
+           <height>91</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>列调控制</string>
+         </property>
+         <widget class="QPushButton" name="intercom_open">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>50</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>开启</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="intercom_close">
+          <property name="geometry">
+           <rect>
+            <x>110</x>
+            <y>50</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>关闭</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>232</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QRadioButton" name="intercom_voice_1">
+             <property name="text">
+              <string>语音1</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroup_6</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="intercom_voice_2">
+             <property name="text">
+              <string>语音2</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroup_6</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="intercom_voice_3">
+             <property name="text">
+              <string>语音3</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroup_6</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="intercom_voice_4">
+             <property name="text">
+              <string>语音4</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroup_6</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_8">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>120</y>
+           <width>281</width>
+           <height>111</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>G网控制</string>
+         </property>
+         <widget class="QLineEdit" name="g_net_phone">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>80</y>
+            <width>121</width>
+            <height>20</height>
+           </rect>
+          </property>
+          <property name="placeholderText">
+           <string>输入电话号码</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="open_g_net">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>50</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>开启</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget_3">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>50</y>
+            <width>102</width>
+            <height>18</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <item>
+            <widget class="QRadioButton" name="signal_send">
+             <property name="text">
+              <string>点呼</string>
+             </property>
+             <property name="checked">
+              <bool>true</bool>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroup_5</string>
+             </attribute>
+            </widget>
+           </item>
+           <item>
+            <widget class="QRadioButton" name="group_send">
+             <property name="text">
+              <string>组呼</string>
+             </property>
+             <attribute name="buttonGroup">
+              <string notr="true">buttonGroup_5</string>
+             </attribute>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QPushButton" name="close_g_net">
+          <property name="geometry">
+           <rect>
+            <x>150</x>
+            <y>80</y>
+            <width>75</width>
+            <height>23</height>
+           </rect>
+          </property>
+          <property name="text">
+           <string>关闭</string>
+          </property>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>161</width>
+            <height>22</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QLabel" name="label_41">
+             <property name="text">
+              <string>语音类型:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="g_voice_type">
+             <item>
+              <property name="text">
+               <string>1</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>2</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>3</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>4</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>5</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_10">
+         <property name="geometry">
+          <rect>
+           <x>300</x>
+           <y>130</y>
+           <width>251</width>
+           <height>101</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>布撤防</string>
+         </property>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>30</x>
+            <y>20</y>
+            <width>111</width>
+            <height>16</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_11">
+           <item>
+            <widget class="QLabel" name="door_state_edit_4">
+             <property name="text">
+              <string>布撤防状态:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="defence_edit">
+             <property name="text">
+              <string>无</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>70</y>
+            <width>239</width>
+            <height>25</height>
+           </rect>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_23">
+           <item>
+            <widget class="QPushButton" name="get_defence_state">
+             <property name="text">
+              <string>读取</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="undefence_control">
+             <property name="text">
+              <string>布防</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="defence_control">
+             <property name="text">
+              <string>撤防</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+        <widget class="QGroupBox" name="groupBox_14">
+         <property name="geometry">
+          <rect>
+           <x>570</x>
+           <y>20</y>
+           <width>251</width>
+           <height>201</height>
+          </rect>
+         </property>
+         <property name="title">
+          <string>喇叭控制</string>
+         </property>
+         <widget class="QWidget" name="layoutWidget">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>197</width>
+            <height>161</height>
+           </rect>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_18" stretch="0,0">
+             <item>
+              <widget class="QLabel" name="label_36">
+               <property name="text">
+                <string>喇叭编号:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="speaker_id_set">
+               <property name="placeholderText">
+                <string>16进制数据</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_15">
+             <item>
+              <widget class="QLabel" name="label_37">
+               <property name="text">
+                <string>喇叭语音:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="speaker_type_1">
+               <property name="text">
+                <string>语音1</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">buttonGroup_2</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="speaker_type2">
+               <property name="text">
+                <string>语音2</string>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">buttonGroup_2</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_17">
+             <item>
+              <widget class="QLabel" name="label_38">
+               <property name="text">
+                <string>喇叭音量:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="speaker_volume">
+               <property name="text">
+                <string/>
+               </property>
+               <property name="placeholderText">
+                <string>10进制数据</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_16">
+             <item>
+              <widget class="QLabel" name="label_39">
+               <property name="text">
+                <string>喇叭播放类型:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="signal_play">
+               <property name="text">
+                <string>单曲</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">buttonGroup_7</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="loop_play">
+               <property name="text">
+                <string>循环</string>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">buttonGroup_7</string>
+               </attribute>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_19">
+             <item>
+              <widget class="QPushButton" name="open_speaker">
+               <property name="text">
+                <string>开启</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="close_speaker">
+               <property name="text">
+                <string>关闭</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_13">
+        <property name="geometry">
+         <rect>
+          <x>420</x>
+          <y>10</y>
+          <width>221</width>
+          <height>231</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>版本</string>
+        </property>
+        <widget class="QWidget" name="layoutWidget">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>20</y>
+           <width>181</width>
+           <height>191</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QTextEdit" name="version_edit">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_21">
+            <item>
+             <spacer name="horizontalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <widget class="QPushButton" name="get_version_btn">
+              <property name="text">
+               <string>读取版本</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_7">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>10</y>
+          <width>201</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>心跳信息</string>
+        </property>
+        <widget class="QWidget" name="layoutWidget_5">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>20</y>
+           <width>181</width>
+           <height>48</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_4">
+          <item row="1" column="0" colspan="2">
+           <widget class="QLabel" name="label_19">
+            <property name="text">
+             <string>软件版本</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QLineEdit" name="soft_version_edit">
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="2">
+           <widget class="QLineEdit" name="hard_version_edit">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0" colspan="2">
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>硬件版本:</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_12">
+        <property name="geometry">
+         <rect>
+          <x>670</x>
+          <y>110</y>
+          <width>201</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>重命名</string>
+        </property>
+        <widget class="QWidget" name="layoutWidget_2">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>60</y>
+           <width>171</width>
+           <height>25</height>
+          </rect>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_20">
+          <item>
+           <widget class="QRadioButton" name="main_qt">
+            <property name="text">
+             <string>主</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="sub_qt">
+            <property name="text">
+             <string>从</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="set_qt_name">
+            <property name="text">
+             <string>设置</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+        <widget class="QLineEdit" name="qt_name">
+         <property name="geometry">
+          <rect>
+           <x>48</x>
+           <y>22</y>
+           <width>133</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>JL-S-100km+50m</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_40">
+         <property name="geometry">
+          <rect>
+           <x>12</x>
+           <y>22</y>
+           <width>30</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>名称:</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QGroupBox" name="groupBox_11">
+        <property name="geometry">
+         <rect>
+          <x>890</x>
+          <y>10</y>
+          <width>181</width>
+          <height>91</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>实时时间</string>
+        </property>
+        <widget class="QDateTimeEdit" name="fc_time_edit">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>30</y>
+           <width>131</width>
+           <height>22</height>
+          </rect>
+         </property>
+         <property name="displayFormat">
+          <string>yyyy-MM-dd H:mm:ss</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="get_fc_time">
+         <property name="geometry">
+          <rect>
+           <x>10</x>
+           <y>60</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>读取</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="set_fc_time">
+         <property name="geometry">
+          <rect>
+           <x>90</x>
+           <y>60</y>
+           <width>75</width>
+           <height>23</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>设置为当前</string>
+         </property>
+        </widget>
+       </widget>
+       <widget class="QPushButton" name="server_restart_btn">
+        <property name="geometry">
+         <rect>
+          <x>900</x>
+          <y>180</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>设备重启</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="collect_tab">
+       <attribute name="title">
+        <string>采集</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup_5"/>
+  <buttongroup name="buttonGroup"/>
+  <buttongroup name="buttonGroup_7"/>
+  <buttongroup name="buttonGroup_6"/>
+  <buttongroup name="buttonGroup_2"/>
+  <buttongroup name="buttonGroup_3"/>
+ </buttongroups>
+</ui>

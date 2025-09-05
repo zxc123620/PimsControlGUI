@@ -57,6 +57,21 @@ log_config = {
             "maxBytes": 1024 * 1024 * 100,
             "backupCount": 20,
             "encoding": "utf8"
+        },
+        "format_file_handler": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "level": "INFO",
+            "formatter": "simple",
+            "filename": os.path.join(log_dir_name, "format.log"),
+            "maxBytes": 1024 * 1024 * 100,
+            "backupCount": 20,
+            "encoding": "utf8"
+        },
+    },
+    "loggers": {
+        "format":{
+            "level": "INFO",
+            "handlers": ["format_file_handler"]
         }
     },
     "root": {
