@@ -29,3 +29,7 @@ class IsSuccessData(BasicFormat):
         if self.result_code in result_code_list:
             self.result_code_text = ResultStatusCode(self.result_code).name
             self.result_text += " 解析: " + self.result_code_text
+
+
+    def __str__(self):
+        return self.get_infos() + f"功能: 控制反馈, 结果码: {self.result_code}, 解析: {self.result_text} "

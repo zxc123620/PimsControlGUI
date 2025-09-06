@@ -9,14 +9,17 @@ from enum import Enum
 
 class ResultStatusCode(Enum):
     DEV_OK = 1
-    OtherQtclient_Open_DEV = 2
-    QTCLIENT_NOT_MASTER = 3
-    DEV_DISABLE = 4
-    RM8000_NoCarrier = 5
-    RM8000_Busy = 6
-    RM8000_NoAnswer = 7
-    RM8000_On_Pho = 8
-    RM8000_Off_pho = 9
+    DEV_ENABLE = 2
+    DEV_DISABLE = 3
+    OtherQtclient_Open_DEV = 4
+    QTCLIENT_MASTER = 5
+    QTCLIENT_SLAVE = 6
+    RM8000_NoCarrier = 7
+    RM8000_Busy = 8
+    RM8000_NoAnswer = 9
+    RM8000_On_Pho = 10
+    RM8000_Off_pho = 11
+    OtherQtclient_Open_Led = 12
     MODBUS_ERR_NOT_MASTER = -1
     MODBUS_ERR_POLLING = -2
     MODBUS_ERR_BUFF_OVERFLOW = -3
@@ -37,4 +40,8 @@ class ResultStatusCode(Enum):
     YX9100_FOLDER_NOT_FIND = -18
     YX9100_DATA_ERR = -19
     DEV_NO_RESPONSE = -20
+    Alarm_Music_Err = -21
+    DEV_TEST_Err = -22
+    Alarmled_Num_err = -23
+    Alarmled_ACSAMP_err = -24
 

@@ -14,14 +14,16 @@ class BasicFormat:
     IP_BYTE_NUM = 4
     PORT_BYTE_NUM = 2
     HEADER_BYTE_NUM = 2  # 头部信息字节数
-    MAC_ADDRESS_BYTE_NUM = 6 # MAC地址字节数
+    MAC_ADDRESS_BYTE_NUM = 6  # MAC地址字节数
     DEVICE_ID_BYTE_NUM = 2  # 设备ID字节数
     HEADER_TIME_BYTE_NUM = 6  # 头部时间字节数
     DATA_LENGTH_BYTE_NUM = 2  # 数据长度字节数
     FUNCTION_CODE_BYTE_NUM = 2  # 功能码字节数
+    CONTROL_CODE_BYTE_NUM = 2  # 控制指令字节数
     ISVALID = ["离线", "在线"]
     DOOR_STATE = ["开门", "关门"]
     ENABLE = ["停用", "启用"]
+    COMMAND_STR = [ "关闭","开启"]
     NTP_TYPE = ["手动", "NTP", "域名"]
     DEFENCE_STATE = ["撤防", "布防"]
 
@@ -29,23 +31,25 @@ class BasicFormat:
         self.function_code = function_code
         start_index = 0
         end_index = start_index + self.HEADER_BYTE_NUM * 2
-        self.header = data_raw[start_index:end_index]
+        self.header = data_raw[start_index:end_index]  # 头部
         start_index = end_index
         end_index = start_index + self.DEVICE_ID_BYTE_NUM * 2
-        self.header_device_id = data_raw[start_index:end_index]
+        self.header_device_id = data_raw[start_index:end_index]  # 设备ID
         start_index = end_index
         end_index = start_index + self.FUNCTION_CODE_BYTE_NUM * 2
-        self.function_code_raw = data_raw[start_index:end_index]
+        self.function_code_raw = data_raw[start_index:end_index]  # 功能码
         start_index = end_index
         end_index = start_index + self.HEADER_TIME_BYTE_NUM * 2
-        self.server_date = data_raw[start_index:end_index]
+        self.server_date = data_raw[start_index:end_index]  # 日期
         start_index = end_index
         end_index = start_index + self.DATA_LENGTH_BYTE_NUM * 2
-        self.date_length = int(self.convert(data_raw[start_index:end_index]), 16)
-        logging.info(f"数据长度:{self.date_length}")
-        self.data_inner = data_raw[end_index:-4]
-        self.crc_data = data_raw[-4:]
-        self.valid_data()
+        self.date_length = int(self.convert(data_raw[start_index:end_index]), 16)  # 长度
+        # logging.info(f"数据长度:{self.date_length}")
+        self.data_inner = data_raw[end_index:-4] # 数据区
+        data_inner_set = set(self.data_inner)
+        self.crc_data = data_raw[-4:]  # crc数据
+        if len(data_inner_set) == 1 and "0" in data_inner_set:
+            self.valid_data()
 
     def valid_data(self):
         """
@@ -120,3 +124,6 @@ class BasicFormat:
         minute = int(data[8:10], 16)
         second = int(data[10:12], 16)
         return datetime.datetime(year=year, month=month, day=day, hour=hour, minute=minute, second=second)
+
+    def get_infos(self):
+        return f"设备ID: {self.header_device_id}, 数据长度: {self.date_length},功能码: {self.function_code_raw},  "

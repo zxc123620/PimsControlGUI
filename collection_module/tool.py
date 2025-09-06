@@ -21,3 +21,6 @@ def crc_16_modbus(read):
     read = crc_data[4:] + crc_data[2:4]  # 把源代码和crc校验码连接起来
     return read.lower()
 
+
+if __name__ == '__main__':
+    print(crc_16_modbus("0000"))

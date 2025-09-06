@@ -13,6 +13,9 @@ class DefenceStateData(BasicFormat):
 
     def __init__(self, data_raw):
         BasicFormat.__init__(self, FunctionCode.DEFENCE_STATE, data_raw)
-        # data_inner_converted = self.convert(self.data_inner)
         self.def_state = int(self.data_inner[:self.BYTE_NUM*2], 16)
         self.def_state_text = self.DEFENCE_STATE[int(self.def_state)]
+
+
+    def __repr__(self):
+        return self.get_infos() + f"功能: 布撤防, 状态: {self.def_state_text}"

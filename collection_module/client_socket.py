@@ -9,25 +9,23 @@ import datetime
 import logging
 import socket
 import time
-from enum import Enum
 from queue import Queue
 from threading import Thread, Event
 
 from PyQt5.QtCore import QThread, pyqtSignal
 
-import collection_module.pims_logger
 from collection_module.protocol_objs.basic_format import BasicFormat
 from collection_module.protocol_objs.connect_data import ConnectData
-from collection_module.protocol_objs.defence import DefenceStateData
-from collection_module.protocol_objs.device_datetime import DeviceDateTimeData
-from collection_module.protocol_objs.device_net_param import DeviceNetData
-from collection_module.protocol_objs.device_params import DeviceParamsObj
-from collection_module.protocol_objs.heartbeat_param import HeartBeatData
-from collection_module.protocol_objs.is_success_data import IsSuccessData
-from collection_module.protocol_objs.version import VersionData
+from collection_module.protocol_objs.mk_send.defence import DefenceStateData
+from collection_module.protocol_objs.mk_send.device_datetime import DeviceDateTimeData
+from collection_module.protocol_objs.mk_send.device_net_param import DeviceNetData
+from collection_module.protocol_objs.mk_send.device_params import DeviceParamsObj
+from collection_module.protocol_objs.mk_send.heartbeat_param import HeartBeatData
+from collection_module.protocol_objs.mk_send.is_success_data import IsSuccessData
+from collection_module.protocol_objs.mk_send.version import VersionData
 from collection_module.tool import crc_16_modbus
-from collection_module.function_code import FunctionCode, FanControl, Enable, TimingType, ConnectStatusCode, \
-    SpeakerType, IntercomType, ControlType, LightNo, SpeakerPlayType, ClientType, DefenceControl, GNetSendType
+from collection_module.function_code import FunctionCode, Enable, TimingType, ConnectStatusCode, \
+    SpeakerType, ControlType, LightNo, SpeakerPlayType, ClientType, DefenceControl, GNetSendType
 
 
 class MKClientSocketThread(QThread):

@@ -30,3 +30,6 @@ class HeartBeatData(BasicFormat):
         start_index = end_index
         end_index = start_index + self.VERSION_BYTE_NUM * 2
         self.mk_hark_version = self.data_inner[start_index:end_index]
+
+    def __repr__(self):
+        return self.get_infos() + f"功能: 心跳, 硬件版本:{self.mk_hark_version}, 软件版本: {self.mk_soft_version}"
