@@ -22,6 +22,8 @@ from collection_module.protocol_objs.qt_send.send_rtc_data import SendRtcTime
 from collection_module.protocol_objs.qt_send.speaker_control import SpeakerControl
 
 from scapy.all import *
+
+
 def sticky_check(data):
     """粘包检查"""
     import re
@@ -29,7 +31,7 @@ def sticky_check(data):
         return "远控单元发送的数据存在粘包"
     if len(re.findall("e3e4", str(data))) > 2:
         return "QT发送的数据存在粘包"
-    return None
+    return ""
 
 
 def packet_callback(data_packet):
@@ -41,23 +43,24 @@ def packet_callback(data_packet):
         if isinstance(data_packet[TCP].payload, NoPayload):
             return
         data = data_packet[TCP].payload.load.hex()
+        sticky = sticky_check(data)
         function_code = data[8:12]
         header = data[:4]
-        format_obj = "未解析"
+        format_obj = ""
         if header == "6869":
             if function_code == FunctionCode.GET_TIME.value:
                 format_obj = GetRTCTIme(data)
-            elif function_code == FunctionCode.GET_DOOR_STATE.value:
+            elif function_code == FunctionCode.DEFENCE_STATE.value:
                 format_obj = DefenceStateData(data)
-            elif function_code == FunctionCode.HEARTBEAT.value:
+            elif function_code == FunctionCode.HEARTBEAT.value and args.heartbeat:
                 format_obj = HeartBeatData(data)
             elif function_code in [FunctionCode.CONTROL_LIGHT.value, FunctionCode.CONTROL_LIGHT.value,
                                    FunctionCode.SPEAKER_CONTROL.value, FunctionCode.INTERCOM_CONTROL.value,
                                    FunctionCode.DEFENCE_CONTROL.value,
-                                   FunctionCode.RENAME.value,FunctionCode.SET_TIME.value]:
+                                   FunctionCode.RENAME.value, FunctionCode.SET_TIME.value]:
                 format_obj = IsSuccessData(data)
         elif header == "e3e4":
-            if function_code == FunctionCode.HEARTBEAT.value:
+            if function_code == FunctionCode.HEARTBEAT.value and args.heartbeat:
                 format_obj = HeartBeatSend(data)
             elif function_code == FunctionCode.CONTROL_LIGHT.value:
                 format_obj = LightControl(data)
@@ -73,21 +76,25 @@ def packet_callback(data_packet):
                 format_obj = SetQTName(data)
             elif function_code == FunctionCode.SET_TIME.value:
                 format_obj = SendRtcTime(data)
-        basic_data = f"""\n
-        --------------------------------------------------
-        [{src_ip}:{src_port}--------->{dst_ip}:{dst_port}]
-        --------------------------------------------------
-        {data}
-        --------------------------------------------------
-        {format_obj}
-        """
+        if format_obj:
+            basic_data = \
+                f"""\n
+                --------------------------------------------------
+                {src_ip}:{src_port}----------->{dst_ip}:{dst_port}
+                --------------------------------------------------
+                {data}
+                --------------------------------------------------
+                {format_obj} : {sticky}
+                """
+        else:
+            basic_data = f"{src_ip}:{src_port}-->{dst_ip}:{dst_port}: {data} {sticky}"
         logging.info(basic_data)
 
 
 parser = argparse.ArgumentParser(description="Python 命令行抓包工具")
 parser.add_argument("-i", "--iface", help="网卡名", default=None)
 parser.add_argument("-f", "--filter", help="BPF 过滤", default=None)
+parser.add_argument("-heartbeat", "--heartbeat", type=int, help="心跳解析", default=0)
 args = parser.parse_args()
-# sniff(iface=args.iface, filter=args.filter, prn=packet_callback)
-sniff(iface="本地连接", filter="tcp port 5001", prn=packet_callback)
-
+sniff(iface=args.iface, filter=args.filter, prn=packet_callback)
+# sniff(iface="本地连接", filter="tcp port 5001", prn=packet_callback)
