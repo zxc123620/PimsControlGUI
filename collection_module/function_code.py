@@ -28,6 +28,10 @@ class FunctionCode(Enum):
     GET_TIME = "0502"  # 获取时间
     SET_TIME = "0602"  # 设置时间
     DEVICE_REBOOT = "2003"  # 重启
+    HUM_AND_TEMP = "0301"  # 温湿度
+    RAIN_DATA = "0601"  # 雨量数据
+    PDU_GET = "0501"  # PDU状态
+    PDU_CONTROL = "0903"  # PDU状态
 
 
 class ConnectStatusCode(Enum):

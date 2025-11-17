@@ -17,18 +17,7 @@ class IsSuccessData(BasicFormat):
         BasicFormat.__init__(self, FunctionCode.COMMAND_RESULT, data_raw)
         data_inner_converted = self.convert(self.data_inner)
         data = data_inner_converted[:self.RESULT_BYTE_NUM * 2]
-        result_int = int(data, 16)
-        result_bin = eval(bin(int(data, 16)))
-        self.result_text = ""
-        if result_bin & (1 << 7):
-            self.result_code = result_bin - (1 << 8)
-        else:
-            self.result_code = result_int
-        # self.result_text += "结果码: " + str(self.result_code)
-        result_code_list = [code.value for code in ResultStatusCode]
-        if self.result_code in result_code_list:
-            self.result_code_text = ResultStatusCode(self.result_code).name
-            self.result_text = self.result_code_text
+        self.result_code, self.result_text = self.state_convert(data)  # 执行状态码,执行状态解析
 
     def __str__(self):
         return self.get_infos() + f"功能: 控制反馈, 结果码: {self.result_code}, 解析: {self.result_text} "

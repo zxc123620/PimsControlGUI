@@ -7,6 +7,7 @@
 import datetime
 import logging
 
+from collection_module.result_status_code import ResultStatusCode
 from collection_module.tool import crc_16_modbus
 
 
@@ -23,7 +24,7 @@ class BasicFormat:
     ISVALID = ["离线", "在线"]
     DOOR_STATE = ["开门", "关门"]
     ENABLE = ["停用", "启用"]
-    COMMAND_STR = [ "关闭","开启"]
+    COMMAND_STR = ["关闭", "开启"]
     NTP_TYPE = ["手动", "NTP", "域名"]
     DEFENCE_STATE = ["撤防", "布防"]
 
@@ -45,7 +46,7 @@ class BasicFormat:
         end_index = start_index + self.DATA_LENGTH_BYTE_NUM * 2
         self.date_length = int(self.convert(data_raw[start_index:end_index]), 16)  # 长度
         # logging.info(f"数据长度:{self.date_length}")
-        self.data_inner = data_raw[end_index:-4] # 数据区
+        self.data_inner = data_raw[end_index:-4]  # 数据区
         data_inner_set = set(self.data_inner)
         self.crc_data = data_raw[-4:]  # crc数据
         if len(data_inner_set) == 1 and "0" in data_inner_set:
@@ -127,3 +128,18 @@ class BasicFormat:
 
     def get_infos(self):
         return f"设备ID: {self.header_device_id}, 数据长度: {self.date_length},功能码: {self.function_code_raw},  "
+
+    @staticmethod
+    def state_convert(data):
+        result_int = int(data, 16)
+        result_bin = eval(bin(int(data, 16)))
+        result_text = ""
+        if result_bin & (1 << 7):
+            result_code = result_bin - (1 << 8)
+        else:
+            result_code = result_int
+        # self.result_text += "结果码: " + str(self.result_code)
+        result_code_list = [code.value for code in ResultStatusCode]
+        if result_code in result_code_list:
+            result_text = ResultStatusCode(result_code).name
+        return result_code, result_text
